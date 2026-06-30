@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* Custom scrollbars for executive dashboard look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@layer base {
+  body {
+    @apply antialiased transition-colors duration-500 overflow-x-hidden;
+  }
+}
+
+/* Frosted Glass Custom Utilities */
+@utility glass-panel-dark {
+  background-color: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+@utility glass-panel-light {
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
+
+@utility glass-subpanel-dark {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility glass-subpanel-light {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Background mesh animations */
+@keyframes ambient-pulse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(5%, 10%) scale(1.15);
+    opacity: 0.35;
+  }
+}
+
+@keyframes ambient-pulse-alt {
+  0%, 100% {
+    transform: translate(0, 0) scale(1.1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(-8%, -5%) scale(0.95);
+    opacity: 0.25;
+  }
+}
+
+.ambient-orb-1 {
+  filter: blur(130px);
+  animation: ambient-pulse 15s infinite ease-in-out alternate;
+}
+
+.ambient-orb-2 {
+  filter: blur(130px);
+  animation: ambient-pulse-alt 20s infinite ease-in-out alternate;
+}
+
